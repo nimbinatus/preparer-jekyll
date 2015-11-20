@@ -115,6 +115,7 @@ class Testcase
     return assets unless File.directory? base
 
     Find.find(base) do |path|
+      next if path == base
       assets << path[base.size..-1]
     end
     assets.sort
