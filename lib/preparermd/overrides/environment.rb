@@ -16,7 +16,7 @@ end
 
 # Custom Index subclass that uploads each built asset to the content service as it is discovered.
 #
-class Index < Sprockets::Index
+class Index < Sprockets::CachedEnvironment
   def build_asset(path, pathname, options)
     super.tap do |asset|
       dest = File.join(PreparerMD.config.asset_dir, asset.logical_path)
