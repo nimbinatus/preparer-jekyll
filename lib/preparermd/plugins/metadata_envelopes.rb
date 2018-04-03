@@ -18,7 +18,7 @@ module PreparerMD
         end
       end
 
-      site.posts.docs.each do |post|
+      site.posts.each do |post|
         render_json(post, site)
       end
 
