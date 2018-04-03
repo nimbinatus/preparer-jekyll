@@ -51,11 +51,13 @@ end
 #
 module Jekyll
   module Assets
-    module Context
-      alias_method :orig_to_s, :asset_path
-      def asset_path
+
+    class Drop
+      alias_method :orig_to_s, :to_s
+      def to_s
         @asset.respond_to?(:asset_render_url) ? @asset.asset_render_url : orig_to_s
       end
     end
+
   end
 end
