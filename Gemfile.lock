@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    preparermd (0.2.0)
+    preparermd (1.0.0)
       faraday (= 0.14.0)
       jekyll (= 3.7.3)
       jekyll-assets (= 3.0.8)
