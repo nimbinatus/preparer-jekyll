@@ -50,11 +50,11 @@ end
 # Monkey-patch the Jekyll Assets plugin AssetPath class to use the #asset_render_url
 #
 module Jekyll
-  module AssetsPlugin
+  module Assets
 
-    class AssetPath
-      alias_method :orig_to_s, :to_s
-      def to_s
+    class Context
+      alias_method :orig_to_s, :asset_path
+      def asset_path
         @asset.respond_to?(:asset_render_url) ? @asset.asset_render_url : orig_to_s
       end
     end
