@@ -38,3 +38,4 @@ env
 
 preparer-test-*
 .asset-cache
+.jekyll-cache
