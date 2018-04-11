@@ -47,17 +47,14 @@ class Env < Jekyll::Assets::Env
   end
 end
 
-# Monkey-patch the Jekyll Assets plugin AssetPath class to use the #asset_render_url
+# Monkey-patch the Jekyll Assets plugin SassFunctions module (run from the
+# Functions module) to use the #asset_render_url if present.
 #
-module Jekyll
-  module Assets
-
-    class Drop
-      alias_method :orig_to_s, :to_s
-      def to_s
-        @asset.respond_to?(:asset_render_url) ? @asset.asset_render_url : orig_to_s
-      end
+module Sprockets
+  class Asset
+    alias_method :orig_to_s, :to_s
+    def to_s
+      @asset.respond_to?(:asset_render_url) ? @asset.asset_render_url : orig_to_s
     end
-
   end
 end
